@@ -10,36 +10,36 @@ public class MotionBlur implements PixelFilter {
         short[][] newGrid = new short[grid.length][grid[0].length];
         String inputValue = JOptionPane.showInputDialog("Please choose a blur radius");
         int radius = Integer.parseInt(inputValue);
-        for (int row = 0; row < grid.length; row++) {
-            for (int col = 0; col < grid[0].length; col++) {
-                blurPixel(grid, newGrid, row, col, radius);
+        for (int r = 0; r < grid.length; r++) {
+            for (int c = 0; c < grid[0].length; c++) {
+                if (c+radius > grid[0].length-1){
+                    smallBlur(grid, newGrid, r, c, radius);
+                } else {
+                    blur(grid, newGrid, r, c, radius);
+                }
             }
         }
+
         img.setPixels(newGrid);
         return img;
     }
+    private void smallBlur(short[][] grid, short[][] newGrid, int r, int c, int radius) {
+        radius = grid[0].length - c;
+        short average = 0;
+        for (short i = 0; i < radius; i++) {
+            average += grid[r][c+i];
+        }
 
-    public static void blurPixel(short[][] grid, short[][] newGrid, int row, int col, int radius) {
-        int sum = 0;
-        if (col + radius <= grid[0].length) {
-            for (int i = col; i < col + radius; i++) {
-                sum += grid[row][i];
-            }
-        } else {
-            for (int i = col; i < grid[0].length-col; i++) {
-                sum+= grid[row][i];
-            }
+        newGrid[r][c] = (short) (average / radius);
+    }
+
+    private void blur(short[][] grid, short[][] newGrid, int r, int c, int radius){
+        short average = 0;
+        for (short i = 0; i < radius; i++) {
+            average += grid[r][c+i];
         }
-        if (col >= radius) {
-            for (int i = col; i >= col - radius; i--) {
-                sum += grid[row][i];
-            }
-        } else {
-            for (int i = col; i >= 0; i--) {
-                sum += grid[row][i];
-            }
-        }
-        newGrid[row][col] = (short)(sum/(radius * 2));
+
+        newGrid[r][c] = (short) (average / radius);
     }
 }
 
