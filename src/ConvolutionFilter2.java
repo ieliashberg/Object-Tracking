@@ -1,7 +1,7 @@
 import processing.core.PApplet;
 
 //Ilan Eliashberg (this is my edit)
-//edit number 2
+//edit number 3
 public class ConvolutionFilter2 implements PixelFilter {
     private double[][] blurKernel =
             {{1.0 / 9, 1.0 / 9, 1.0 / 9},
