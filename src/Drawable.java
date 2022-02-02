@@ -1,5 +1,3 @@
-package Interfaces;
-
 import core.DImage;
 import processing.core.PApplet;
 

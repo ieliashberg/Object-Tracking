@@ -1,7 +1,7 @@
 package Filters;
 
-import Interfaces.Drawable;
-import Interfaces.PixelFilter;
+import Drawable;
+import PixelFilter;
 import core.DImage;
 import processing.core.PApplet;
 

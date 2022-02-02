@@ -1,6 +1,6 @@
 package Filters;
 
-import Interfaces.PixelFilter;
+import PixelFilter;
 import core.DImage;
 
 public class BasicColorFilter implements PixelFilter {

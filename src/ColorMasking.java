@@ -1,3 +1,4 @@
+import core.DImage;
 import processing.core.PApplet;
 
 public class ColorMasking implements PixelFilter {

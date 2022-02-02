@@ -1,5 +1,3 @@
-package Interfaces;
-
 import core.DImage;
 
 public interface Interactive {

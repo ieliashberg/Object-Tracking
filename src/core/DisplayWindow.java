@@ -1,8 +1,8 @@
 package core;
 
-import Interfaces.Drawable;
-import Interfaces.Interactive;
-import Interfaces.PixelFilter;
+import Drawable;
+import Interactive;
+import PixelFilter;
 import com.github.sarxos.webcam.Webcam;
 import processing.core.PApplet;
 import processing.core.PImage;
